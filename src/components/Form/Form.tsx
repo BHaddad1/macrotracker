@@ -23,7 +23,10 @@ const Form = () => {
       <button onClick={(e)=>{
         e.preventDefault()
         getFood(food)
-        .then(data=> setFoodReceived(data))
+        .then(data => {
+          console.log(data)
+          setFoodReceived(data)
+        })
         .catch(err => setError(err))
       }}></button>
     </form>
