@@ -1,10 +1,20 @@
-import {useState} from "react"
-import { getFood } from "../../apiCalls"
+import { useState, useEffect } from "react";
+import { getFood } from "../../apiCalls";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Form = () => {
 
-  const[food, setFood] = useState("")
+  const params = useParams();
+  const navigate = useNavigate();
+  const[food, setFood] = useState("");
+  const [error, setError] = useState("");
+  const [foodReceived, setFoodReceived] = useState("");
 
+  useEffect(() => {
+    if (foodReceived) {
+      navigate(`/results`)
+    }
+  }, [foodReceived])
 
   return (
     <form>
@@ -13,7 +23,8 @@ const Form = () => {
       <button onClick={(e)=>{
         e.preventDefault()
         getFood(food)
-        .then(data=>console.log(data))
+        .then(data=> setFoodReceived(data))
+        .catch(err => setError(err))
       }}></button>
     </form>
   )
