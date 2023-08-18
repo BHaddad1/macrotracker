@@ -1,5 +1,4 @@
 const API_KEY = import.meta.env.VITE_API_KEY
-console.log(import.meta.env.VITE_API_KEY, "here")
 
 export const getFood = async (query: string) => {
   const url = `https://api.api-ninjas.com/v1/nutrition?query=${query}`;
