@@ -12,7 +12,9 @@ const Form = () => {
 
   useEffect(() => {
     if (foodReceived) {
-      navigate(`/results`)
+      navigate(`/results`, {
+        state: {foodInfo: foodReceived}
+    })
     }
   }, [foodReceived])
 
