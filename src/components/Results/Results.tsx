@@ -7,6 +7,7 @@ import {
   Legend
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { useNavigate } from "react-router-dom";
 
 ChartJS.register(ArcElement,
   Tooltip, 
@@ -16,6 +17,7 @@ const Results = () => {
 
   const location = useLocation(); 
   const [foodInfo, setFoodInfo] = useState(location.state.foodInfo[0]);
+  const navigate = useNavigate(); 
   
   const data = {
     labels: ['Fat', 'Protein', 'Carbs'],
@@ -33,8 +35,10 @@ const Results = () => {
     ]
   }
 
+  console.log(foodInfo)
   return (
     <>
+    <h1>Details for {foodInfo.name}</h1>
       <div style={{ textAlign: "center" }}>
         <Pie
           data={data}
@@ -49,6 +53,15 @@ const Results = () => {
   
         />
       </div>
+      <p>Calories: {foodInfo.calories}</p>
+      <p>Fat: {foodInfo.fat_total_g}</p>
+      <p>Protein: {foodInfo.protein_g}</p>
+      <p>Carbs: {foodInfo.carbohydrates_total_g}</p>
+      <p>Fiber: {foodInfo.fiber_g}</p>
+      <p>Sodium: {foodInfo.sodium_mg}</p>
+      <button onClick={() => navigate('/saved', {
+        state: {foodInfo: foodInfo}
+    })}>Save Food?</button>
     </>
   )
 }
