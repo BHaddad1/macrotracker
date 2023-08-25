@@ -8,6 +8,7 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { useNavigate } from "react-router-dom";
+import "./Results.css";
 
 ChartJS.register(ArcElement,
   Tooltip, 
@@ -23,12 +24,12 @@ const Results = () => {
     labels: ['Fat', 'Protein', 'Carbs'],
     datasets: [
       {
-        label: "Macros for food in GRAMS",
+        label: "Macros for food in grams",
         data: [foodInfo.fat_total_g, foodInfo.protein_g, foodInfo.carbohydrates_total_g],
         backgroundColor: [
-          'black',
-          'red',
-          'blue'
+          '#89fc00',
+          '#dc0073',
+          '#00a1e4'
         ],
         borderWidth: 1,
       }
@@ -38,7 +39,7 @@ const Results = () => {
   console.log(foodInfo)
   return (
     <>
-    <h1>Details for {foodInfo.name}</h1>
+    <h1 className="results-title">Details for {foodInfo.name} per 100g</h1>
       <div style={{ textAlign: "center" }}>
         <Pie
           data={data}
@@ -50,7 +51,6 @@ const Results = () => {
               }
             }
           }}
-  
         />
       </div>
       <p>Calories: {foodInfo.calories}</p>
@@ -59,9 +59,12 @@ const Results = () => {
       <p>Carbs: {foodInfo.carbohydrates_total_g}</p>
       <p>Fiber: {foodInfo.fiber_g}</p>
       <p>Sodium: {foodInfo.sodium_mg}</p>
-      <button onClick={() => navigate('/saved', {
+      <button onClick={() => {
+        let food = JSON.stringify(foodInfo);
+        localStorage.setItem(`${foodInfo.name}`, food);
+        navigate('/saved', {
         state: {foodInfo: foodInfo}
-    })}>Save Food?</button>
+    })}}>Save Food?</button>
     </>
   )
 }
