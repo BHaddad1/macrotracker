@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 import "./Saved.css";
 
 interface El {
@@ -61,6 +61,7 @@ const Saved = () => {
     <>
       <h2 className="saved-title">Saved Foods</h2>
       <ul className="list">{mappedKeys}</ul>
+      <Link to="/form"><button>Find Another Food?</button></Link>
       <h2>Total Macros</h2>
       <h3>{getTotalMacros()}</h3>
       <button onClick={() => {
