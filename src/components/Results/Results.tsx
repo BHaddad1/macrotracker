@@ -35,8 +35,7 @@ const Results = () => {
       }
     ]
   }
-
-  console.log(foodInfo)
+  
   return (
     <>
     <h1 className="results-title">Details for {foodInfo.name} per 100g</h1>
