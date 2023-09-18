@@ -20,13 +20,12 @@ const Form = () => {
 
   return (
     <form>
-      <div>FORMMMMM</div>
+      <div>Enter Name of Food</div>
       <input className="food-input" type="text" name="food" onChange={e => setFood(e.target.value)} placeholder="Type food here"></input>
       <button onClick={(e)=>{
         e.preventDefault()
         getFood(food)
         .then(data => {
-          console.log(data)
           setFoodReceived(data)
         })
         .catch(err => setError(err))
