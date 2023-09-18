@@ -35,15 +35,14 @@ const Saved = () => {
 
   const getTotalMacros = () => {
     let keys2 = Object.keys(localStorage);
-    let macroObj: object = keys2.reduce(
-      (acc: object, cur: string) => {
+    let macroObj: {[index: string]: number} = {} = keys2.reduce(
+      (acc: {[index: string]: number} = {}, cur: string) => {
         if (cur !== "loglevel") {
-          let thing = JSON.parse(localStorage[cur]);
-          console.log(thing);
-          acc["calories"] += thing.calories;
-          acc["carbs"] += thing.carbohydrates_total_g;
-          acc["protein"] += thing.protein_g;
-          acc["fat"] += thing.fat_total_g;
+          let food = JSON.parse(localStorage[cur]);
+          acc["calories"] += food.calories;
+          acc["carbs"] += food.carbohydrates_total_g;
+          acc["protein"] += food.protein_g;
+          acc["fat"] += food.fat_total_g;
         }
         return acc;
       },
