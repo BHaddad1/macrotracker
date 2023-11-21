@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <main>
-      <h1 className="header">MacroTracker</h1>
+      <h1>MacroTracker</h1>
       <section className="about">
         <p className="home-about">Welcome to an easy way to track your macros!</p>
         <p className="home-about">Simply fill out the form, view the results, and save your macros in a list.</p>
