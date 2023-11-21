@@ -38,7 +38,7 @@ const Results = () => {
   
   return (
     <>
-    <h1 className="results-title">Details for {foodInfo.name} per 100g</h1>
+    <h1 className="results-title">Macros for {foodInfo.name} per 100g</h1>
       <div style={{ textAlign: "center" }}>
         <Pie
           data={data}
