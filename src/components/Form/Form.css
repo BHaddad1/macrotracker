@@ -1,14 +1,16 @@
 .food-input {
-  background-color: #fb8500;
+  background-color: #e9c46a;
   border-radius: 5%;
   border: none;
   height: 5vh;
   margin-top: 5%;
+  width: 50vw;
 }
 
 .form-button {
   height: 5vh;
   margin-top: 3%;
+  text-align: center;
 }
 
 .form-container {
@@ -21,7 +23,7 @@
 }
 
 .header {
-  color: #219ebc;
+  color: #003049;
   font-size: large;
   font-weight: 700;
 }
