@@ -1,0 +1,27 @@
+.food-input {
+  background-color: #fb8500;
+  border-radius: 5%;
+  border: none;
+  height: 5vh;
+  margin-top: 5%;
+}
+
+.form-button {
+  height: 5vh;
+  margin-top: 3%;
+}
+
+.form-container {
+  align-items: center;
+  display: flex; 
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  width: 50vw;
+}
+
+.header {
+  color: #219ebc;
+  font-size: large;
+  font-weight: 700;
+}
