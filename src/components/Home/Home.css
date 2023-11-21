@@ -1,7 +1,17 @@
-/* .header {
-  font-size: 6em;
-} */
-
 .home-link {
+  font-size: 4em;
+}
 
+.home-about {
+  font-size: 2em;
+  color: #386641;
+}
+
+.about {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  width: 65vw;
 }
